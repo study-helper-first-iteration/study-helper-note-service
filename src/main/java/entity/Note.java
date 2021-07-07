@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name="note")
 public class Note {
 	
 	@Id
@@ -30,6 +31,8 @@ public class Note {
 	public Note() {
 		super();
 	}
+	
+	
 
 	public Note(int id, String title, Date createdDate, Date lastModifiedDate, String body) {
 		super();

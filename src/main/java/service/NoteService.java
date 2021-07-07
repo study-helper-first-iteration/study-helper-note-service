@@ -22,7 +22,8 @@ public class NoteService {
 	
 	//read
 	public Note getNoteById(int id){
-		return pr.getById(id);
+		System.out.println("Found note");
+		return pr.findById(id).get();		
 	}
 	
 	public List<Note> getAllNotes(){
