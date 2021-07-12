@@ -15,8 +15,8 @@ import service.DataLoader;
 @EnableJpaRepositories(basePackages ="dao")
 public class StudyHelperNoteServiceApplication {
 	
-	@Autowired
-	DataLoader data;
+	//@Autowired
+	//DataLoader data;
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudyHelperNoteServiceApplication.class, args);

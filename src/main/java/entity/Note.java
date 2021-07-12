@@ -11,16 +11,16 @@ public class Note {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "note_id")
 	private int id;
 	
 	@Column(name = "title")
 	private String title;
 	
-	@Column(name = "createdDate")
+	@Column(name = "createddate")
 	private Date createdDate;
 	
-	@Column(name = "lastModifiedDate")
+	@Column(name = "lastmodifieddate")
 	private Date lastModifiedDate;
 	
 	@Column(name = "body")
