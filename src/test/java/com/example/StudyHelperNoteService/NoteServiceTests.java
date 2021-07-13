@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -24,20 +25,26 @@ import service.NoteService;
 
 @RunWith(MockitoJUnitRunner.class)
 class NoteServiceTests {
-	
-	@Mock
-	NoteRepository nr;
-	
-	@InjectMocks
-	NoteService ns = new NoteService();
-	
+
+	private NoteRepository nr;
+
+	private NoteService ns;
+
+	@BeforeEach
+	public void setUp(){
+		nr = Mockito.mock(NoteRepository.class);
+		ns = new NoteService(nr);
+	}
 	
 
 	@Test
-	void testGetNoteById() {
+	void testGetNoteById() throws Exception {
 		Note note = new Note(2,"Biolegy",new Date(), new Date(), "Body Text");
-		Mockito.when(nr.getById(2)).thenReturn(note);
-		assertEquals(ns.getNoteById(2),note);
+		Optional<Note> optional = Optional.of(note);
+		Mockito.doReturn(optional).when(nr).findById(2);
+		Note actual = ns.getNoteById(2);
+		Mockito.verify(nr).findById(2);
+		assertEquals(actual,note);
 	}
 	
 	@Test

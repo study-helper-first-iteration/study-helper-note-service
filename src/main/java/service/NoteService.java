@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,20 +11,24 @@ import entity.Note;
 
 @Service
 public class NoteService {
-	
-	@Autowired
+
 	private NoteRepository pr;
 	
-	
+	public NoteService(NoteRepository noteRepository){
+		pr = noteRepository;
+	}
 	//create
 	public void addNote(Note note) {
 		pr.save(note);
 	}
 	
 	//read
-	public Note getNoteById(int id){
-		System.out.println("Found note");
-		return pr.findById(id).get();		
+	public Note getNoteById(int id) throws Exception {
+		Optional<Note> optional = pr.findById(id);
+		if(optional.isPresent()){
+			return optional.get();
+		}
+		throw new Exception();
 	}
 	
 	public List<Note> getAllNotes(){

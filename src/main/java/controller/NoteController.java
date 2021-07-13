@@ -26,7 +26,7 @@ public class NoteController {
 
 	
 	@GetMapping("/studyhelper/note/{id}")
-	public Note getNoteById(@PathVariable int id) {
+	public Note getNoteById(@PathVariable int id) throws Exception {
 		return ns.getNoteById(id);
 	}
 	
