@@ -19,10 +19,12 @@ import service.NoteService;
 @CrossOrigin("*")
 public class NoteController {
 	
-	
-	@Autowired
+
 	private NoteService ns;
-	
+
+	public NoteController(NoteService noteService){
+		ns = noteService;
+	}
 
 	
 	@GetMapping("/studyhelper/note/{id}")
