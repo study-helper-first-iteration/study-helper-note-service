@@ -28,7 +28,7 @@ public class NoteController {
 
 	
 	@GetMapping("/note/{id}")
-	public Note getNoteById(@PathVariable int id) throws Exception {
+	public Note getNoteById(@PathVariable long id) throws Exception {
 		return ns.getNoteById(id);
 	}
 	
@@ -48,7 +48,7 @@ public class NoteController {
 	}
 	
 	@DeleteMapping("/note/{id}")
-	public void deleteNote(@PathVariable int id) {
+	public void deleteNote(@PathVariable long id) {
 		ns.deleteById(id);
 	}
 

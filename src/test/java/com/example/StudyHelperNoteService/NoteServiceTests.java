@@ -41,9 +41,9 @@ class NoteServiceTests {
 	void testGetNoteById() throws Exception {
 		Note note = new Note(2,"Biolegy",new Date(), new Date(), "Body Text");
 		Optional<Note> optional = Optional.of(note);
-		Mockito.doReturn(optional).when(nr).findById(2);
+		Mockito.doReturn(optional).when(nr).findById(2L);
 		Note actual = ns.getNoteById(2);
-		Mockito.verify(nr).findById(2);
+		Mockito.verify(nr).findById(2L);
 		assertEquals(actual,note);
 	}
 	

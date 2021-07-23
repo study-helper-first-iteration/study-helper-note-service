@@ -12,7 +12,7 @@ public class Note {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "note_id")
-	private int id;
+	private long id;
 	
 	@Column(name = "title")
 	private String title;
@@ -32,9 +32,8 @@ public class Note {
 		super();
 	}
 	
-	
 
-	public Note(int id, String title, Date createdDate, Date lastModifiedDate, String body) {
+	public Note(long id, String title, Date createdDate, Date lastModifiedDate, String body) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -43,11 +42,11 @@ public class Note {
 		this.body = body;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

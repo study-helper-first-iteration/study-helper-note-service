@@ -3,7 +3,6 @@ package service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dao.NoteRepository;
@@ -23,7 +22,7 @@ public class NoteService {
 	}
 	
 	//read
-	public Note getNoteById(int id) throws Exception {
+	public Note getNoteById(long id) throws Exception {
 		Optional<Note> optional = pr.findById(id);
 		if(optional.isPresent()){
 			return optional.get();
@@ -41,7 +40,7 @@ public class NoteService {
 	}
 	
 	//delete
-	public void deleteById(int id) {
+	public void deleteById(long id) {
 		pr.deleteById(id);
 	}
 	
